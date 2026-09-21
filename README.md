@@ -28,3 +28,4 @@ python3 password_kdf_bench.py --passphrase "quisfranklin-801480194!94"
 
 Edit and paste [`Quis_Franklin_LabHM.md`](Quis_Franklin_LabHM.md) into Word as `Quis_Franklin_LabHM.docx`. Insert full-desktop screenshots with yellow/red markup per the course guidelines.
 # LabHMLengthExtension
+# LabHMLengthExtension
