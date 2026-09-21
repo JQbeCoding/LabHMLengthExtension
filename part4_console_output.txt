@@ -1,0 +1,22 @@
+[*] passphrase (PASS): quisfranklin-801480194!94
+
+--- unsalted vs salted SHA-256 ---------------------------------
+SHA256(pw)                 = 6343305f0f6a0d6fbad361e591e1b3d218ac90e2882dd29876e65094651cda51
+salt A                    = 920c560fa99ea992e80e4e3c7d36d2ce
+SHA256(saltA || pw)       = 345bce9364854206ec6ba254c3a7c26bbd53e82b13a2a63978c7e81947f47e96
+salt B                    = 5315962df530a00db62d0542654b6974
+SHA256(saltB || pw)       = 3eb73dbddb0afef283e8057720bb67542ac2ed321f866023fdc9fc07f0e89f16
+  -> same password, two salts, two completely different stored digests
+
+--- KDF work factor (time for ONE verification) ---------------
+algorithm                      time / hash    est. GPU guesses/sec
+------------------------------------------------------------------
+raw SHA-256                         0.2 us          20,000,000,000
+PBKDF2-HMAC-SHA256 x10,000         0.92 ms               1,000,000
+PBKDF2-HMAC-SHA256 x100,000        9.28 ms                 100,000
+PBKDF2-HMAC-SHA256 x600,000       55.96 ms                  16,666
+scrypt N=2^15,r=8,p=1             59.96 ms   memory-hard (~32 MiB per guess)
+
+For Q13: read your own numbers off the table above -- the 'time / hash'
+and 'est. GPU guesses/sec' columns are what the question asks you to
+compare. Your measured times will differ from anyone else's machine.
